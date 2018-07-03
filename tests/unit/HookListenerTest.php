@@ -83,6 +83,10 @@ class HookListenerTest extends TestCase {
 			'localhost, but remote access' => ['127.0.0.1/24', '10.0.0.1', false],
 			'multiple ranges, miss' => ['10.0.0.1/24,10.0.1.1/24', '127.0.0.1', false],
 			'multiple ranges, hit' => ['10.0.0.1/24,127.0.0.1/24', '127.0.0.1', true],
+			'ipv6 hit' => ['2001:db8::/48', '2001:db8:0:0:0:0:0:0', true],
+			'ipv6 miss' => ['2001:db8::/48', '2002:db8:0:0:0:0:0:0', false],
+			'mixed hit v4' => ['127.0.0.1/24,2001:db8::/48', '127.0.0.1', true],
+			'mixed hit v6' => ['127.0.0.1/24,2001:db8::/48', '2001:db8:0:0:0:0:0:0', true],
 		];
 	}
 

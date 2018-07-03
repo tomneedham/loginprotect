@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<info>
+	<id>loginprotect</id>
+	<name>Login Protect</name>
+	<licence>AGPL</licence>
+	<author>Tom Needham</author>
+	<version>0.1.0</version>
+	<summary>Login protection based on IP ranges</summary>
+	<category>automation</category>
+	<dependencies>
+		<owncloud min-version="10.0" max-version="10.1" />
+	</dependencies>
+</info>

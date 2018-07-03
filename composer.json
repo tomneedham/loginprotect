@@ -1,0 +1,12 @@
+{
+    "name": "tomneedham/loginprotect",
+    "authors": [
+        {
+            "name": "Tom Needham",
+            "email": "tom@owncloud.com"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": "^4.1"
+    }
+}

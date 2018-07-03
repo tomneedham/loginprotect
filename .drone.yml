@@ -1,0 +1,61 @@
+workspace:
+  base: /var/www/owncloud
+  path: apps/loginprotect
+
+branches: [master, release*, release/*]
+
+pipeline:
+  install-server:
+    image: owncloudci/core
+    pull: true
+    version: ${OC_VERSION}
+    db_type: ${DB_TYPE}
+    db_name: ${DB_NAME}
+    db_host: ${DB_TYPE}
+    db_username: ${DB_USERNAME}
+    db_password: ${DB_PASSWORD}
+
+  install-app:
+    image: owncloudci/php:${PHP_VERSION}
+    pull: true
+    commands:
+      - cd /var/www/owncloud/apps/loginprotect
+      - make
+      - cd /var/www/owncloud/
+      - php occ a:l
+      - php occ a:e loginprotect
+      - php occ a:l
+      - php occ log:manage --level 0
+
+  phpunit-tests:
+    image: owncloudci/php:${PHP_VERSION}
+    pull: true
+    commands:
+      - cd /var/www/owncloud
+      - phpdbg -d memory_limit=4096M -rr ./lib/composer/bin/phpunit --configuration apps/loginprotect/tests/unit/phpunit.xml
+
+  owncloud-log:
+    image: owncloudci/php:${PHP_VERSION}
+    pull: true
+    commands:
+      - cat /var/www/owncloud/data/owncloud.log
+    when:
+      status: [ failure ]
+
+matrix:
+  include:
+
+    - PHP_VERSION: 5.6
+      OC_VERSION: daily-stable10-qa
+
+    - PHP_VERSION: 7.0
+      OC_VERSION: daily-stable10-qa
+
+    - PHP_VERSION: 7.1
+      OC_VERSION: daily-stable10-qa
+
+    - PHP_VERSION: 7.1
+      OC_VERSION: daily-master-qa
+
+    - PHP_VERSION: 7.2
+      OC_VERSION: daily-master-qa

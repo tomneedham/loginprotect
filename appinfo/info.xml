@@ -4,10 +4,19 @@
 	<name>Login Protect</name>
 	<licence>AGPL</licence>
 	<author>Tom Needham</author>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 	<summary>Login protection based on IP ranges</summary>
+	<description>
+		This app allows you to protect admin login to ownCloud to requests originating
+		from a certain set of IP ranges, specified using an OCC command. This can provide
+		some extra security by ensuring admins can only login from within your office
+		for example, or from within your VPN for example, which may enforce extra authentication.
+	</description>
 	<category>automation</category>
 	<dependencies>
 		<owncloud min-version="10.0" max-version="10.1" />
 	</dependencies>
+	<bugs>https://github.com/tomneedham/loginprotect/issues</bugs>
+	<repository type="git">https://github.com/tomneedham/loginprotect.git</repository>
+	<screenshot>https://raw.githubusercontent.com/tomneedham/loginprotect/master/screenshot.png</screenshot>
 </info>

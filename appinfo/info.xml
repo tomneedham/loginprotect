@@ -13,6 +13,7 @@
 		for example, or from within your VPN for example, which may enforce extra authentication.
 	</description>
 	<category>automation</category>
+	<namespace>LoginProtect</namespace>
 	<dependencies>
 		<owncloud min-version="10.0" max-version="10.1" />
 	</dependencies>

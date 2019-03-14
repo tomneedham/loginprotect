@@ -4,7 +4,7 @@
 	<name>Login Protect</name>
 	<licence>AGPL</licence>
 	<author>Tom Needham</author>
-	<version>0.1.1</version>
+	<version>0.2.0</version>
 	<summary>Login protection based on IP ranges</summary>
 	<description>
 		This app allows you to protect admin login to ownCloud to requests originating
